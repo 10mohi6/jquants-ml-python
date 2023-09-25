@@ -1,0 +1,46 @@
+[project]
+name = "jquants-ml"
+version = "0.1.0"
+description = "jquants-ml is a python library for machine learning with japanese stock trade using J-Quants on Python 3.8 and above."
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = ["machine learning", "python", "japanese stock", "trade", "J-Quants", "jquants"]
+authors = [
+  "10mohi6 <10.mohi.6.y@gmail.com>",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Operating System :: OS Independent",
+  "Topic :: Office/Business :: Financial :: Investment",
+  "License :: OSI Approved :: MIT License",
+]
+
+dependencies = [
+  "jquants-api-client",
+  "lightgbm",
+  "scikit-learn",
+  "matplotlib",
+  "seaborn",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-cov",
+  "pytest-mock",
+]
+
+[project.urls]
+Homepage = "https://github.com/10mohi6/jquants-ml-python"
+Documentation = "https://github.com/10mohi6/jquants-ml-python"
+Repository = "https://github.com/10mohi6/jquants-ml-python.git"
+
