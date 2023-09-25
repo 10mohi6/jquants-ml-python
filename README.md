@@ -39,27 +39,27 @@ pprint.pprint(ml.backtest())
 ![7203.png](https://raw.githubusercontent.com/10mohi6/jquants-ml-python/main/tests/7203.png)
 
 ```python
-{'long': {'maximum drawdown': '21700.000',
-          'profit': '12100.000',
-          'profit factor': '1.066',
-          'riskreward ratio': '1.099',
-          'sharpe ratio': '0.031',
-          'trades': '193.000',
-          'win rate': '0.492'},
- 'short': {'maximum drawdown': '86800.000',
-           'profit': '-53950.000',
-           'profit factor': '0.688',
-           'riskreward ratio': '0.809',
-           'sharpe ratio': '0.123',
-           'trades': '111.000',
-           'win rate': '0.459'},
- 'total': {'maximum drawdown': '83400.000',
-           'profit': '-41850.000',
-           'profit factor': '0.883',
-           'riskreward ratio': '0.955',
-           'sharpe ratio': '0.068',
+{'long': {'maximum drawdown': '17900.000',
+          'profit': '28450.000',
+          'profit factor': '1.160',
+          'riskreward ratio': '1.137',
+          'sharpe ratio': '0.056',
+          'trades': '196.000',
+          'win rate': '0.505'},
+ 'short': {'maximum drawdown': '73050.000',
+           'profit': '-37700.000',
+           'profit factor': '0.769',
+           'riskreward ratio': '0.828',
+           'sharpe ratio': '0.088',
+           'trades': '108.000',
+           'win rate': '0.481'},
+ 'total': {'maximum drawdown': '60950.000',
+           'profit': '-9250.000',
+           'profit factor': '0.973',
+           'riskreward ratio': '0.986',
+           'sharpe ratio': '0.069',
            'trades': '304.000',
-           'win rate': '0.480'}}
+           'win rate': '0.497'}}
 ```
 
 ### basic predict
@@ -84,7 +84,7 @@ pprint.pprint(ml.predict())
 ```
 
 ```python
-{'Date': '2023-09-22', 'Price': 2788.5, 'Sign': 'short'}
+{'Date': '2023-09-25', 'Price': 2761.5, 'Sign': 'short'}
 ```
 
 ### advanced
@@ -116,7 +116,7 @@ class MyMl(Ml):
         self.X["atr"] = self.atr(period=14)
         self.X["mom"] = self.mom(period=10)
 
-MyMl(
+ml = MyMl(
     mail_address="<your J-Quants mail address>",
     password="<your J-Quants password>",
     ticker="7203",  # TOYOTA
@@ -124,7 +124,9 @@ MyMl(
     outputs_dir_path="outputs",
     model_dir_path="model",
     data_dir_path="data",
-).backtest()
+)
+pprint.pprint(ml.backtest())
+pprint.pprint(ml.predict())
 ```
 
 ## Supported indicators
