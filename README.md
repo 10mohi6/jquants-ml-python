@@ -2,8 +2,8 @@
 
 [![PyPI](https://img.shields.io/pypi/v/jquants-ml)](https://pypi.org/project/jquants-ml/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![codecov](https://codecov.io/gh/10mohi6/jquants-ml-python/branch/main/graph/badge.svg?token=DukbkJ6Pnx)](https://codecov.io/gh/10mohi6/jquants-ml-python)
-[![Build Status](https://app.travis-ci.com/10mohi6/jquants-ml-python.svg?branch=main)](https://app.travis-ci.com/10mohi6/jquants-ml-python)
+[![codecov](https://codecov.io/gh/10mohi6/jquants-ml-python/graph/badge.svg?token=X8QKKFK6AL)](https://codecov.io/gh/10mohi6/jquants-ml-python)
+[![Python package](https://github.com/10mohi6/jquants-ml-python/actions/workflows/python-package.yml/badge.svg)](https://github.com/10mohi6/jquants-ml-python/actions/workflows/python-package.yml)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/jquants-ml)](https://pypi.org/project/jquants-ml/)
 [![Downloads](https://pepy.tech/badge/jquants-ml)](https://pepy.tech/project/jquants-ml)
 
