@@ -15,25 +15,6 @@ jquants-ml is a python library for machine learning with japanese stock trade us
 
 ## Usage
 
-### basic run
-
-```python
-from jquants_ml import Ml
-
-class MyMl(Ml):
-    def features(self):
-        self.X["close"] = self.df.Close
-        self.X["ror"] = self.df.Close.pct_change(1)
-        self.X["sma"] = self.sma(period=5)
-
-MyMl(
-    mail_address="<your J-Quants mail address>",
-    password="<your J-Quants password>",
-    ticker="7203",  # TOYOTA
-    size=100,  # 100 shares
-).backtest()
-```
-
 ### basic backtest
 
 ```python
@@ -106,7 +87,7 @@ pprint.pprint(ml.predict())
 {'Date': '2023-09-22', 'Price': 2788.5, 'Sign': 'short'}
 ```
 
-### advanced run
+### advanced
 
 ```python
 from jquants_ml import Ml
