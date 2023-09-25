@@ -1,1 +1,1 @@
-from jquants_ml.ml import Ml
+from jquants_ml.ml import *
