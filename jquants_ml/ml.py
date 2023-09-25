@@ -34,12 +34,14 @@ class Ml(object):
         password: str = "",
         ticker: str = "",
         size: int = 1,
+        window: int = 2,
     ) -> None:
         self.ticker = ticker
         self.outputs_dir_path = outputs_dir_path
         self.data_dir_path = data_dir_path
         self.model_dir_path = model_dir_path
         self.size = size
+        self.window = window
         self.cli = jquantsapi.Client(mail_address=mail_address, password=password)
         os.makedirs(self.outputs_dir_path, exist_ok=True)
         os.makedirs(self.data_dir_path, exist_ok=True)
@@ -133,11 +135,11 @@ class Ml(object):
         ax2.legend(["close"])
         feature_imp = pd.DataFrame(
             sorted(zip(model.feature_importances_, self.X.columns.tolist())),
-            columns=["value", "feature"],
+            columns=["value", "features"],
         )
         sns.barplot(
             x="value",
-            y="feature",
+            y="features",
             data=feature_imp.sort_values(by="value", ascending=False),
             ax=ax3,
         )
