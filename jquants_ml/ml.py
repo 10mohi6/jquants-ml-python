@@ -35,6 +35,7 @@ class Ml(object):
         ticker: str = "",
         size: int = 1,
         window: int = 2,
+        is_filename_ticker: bool = True,
     ) -> None:
         self.ticker = ticker
         self.outputs_dir_path = outputs_dir_path
@@ -47,6 +48,7 @@ class Ml(object):
         os.makedirs(self.data_dir_path, exist_ok=True)
         os.makedirs(self.model_dir_path, exist_ok=True)
         self.X = pd.DataFrame()
+        self.is_filename_ticker = is_filename_ticker
 
     def features(self) -> None:
         pass
@@ -75,7 +77,11 @@ class Ml(object):
             .set_index("Date")
         )
         df.to_csv(
-            "{}/{}.d.csv".format(self.data_dir_path, self.ticker),
+            "{}/{}.d.csv".format(self.data_dir_path, self.ticker)
+            if self.is_filename_ticker
+            else "{}/d.csv".format(
+                self.data_dir_path,
+            )
         )
         return df
 
@@ -92,7 +98,7 @@ class Ml(object):
         model.fit(self.X, y)
         joblib.dump(
             model,
-            "{}/{}.joblib".format(self.model_dir_path, self.ticker),
+            "{}/{}.m.joblib".format(self.model_dir_path, self.ticker),
             compress=True,
         )
         X_train, X_test, y_train, y_test = train_test_split(
@@ -158,10 +164,22 @@ class Ml(object):
         )
         fig.suptitle(self.ticker)
         fig.tight_layout()
-        plt.savefig("{}/{}.png".format(self.outputs_dir_path, self.ticker))
+        plt.savefig(
+            "{}/{}.p.png".format(self.outputs_dir_path, self.ticker)
+            if self.is_filename_ticker
+            else "{}/p.png".format(
+                self.outputs_dir_path,
+            )
+        )
         plt.clf()
         plt.close()
-        df.to_csv("{}/{}.csv".format(self.outputs_dir_path, self.ticker))
+        df.to_csv(
+            "{}/{}.p.csv".format(self.outputs_dir_path, self.ticker)
+            if self.is_filename_ticker
+            else "{}/p.csv".format(
+                self.outputs_dir_path,
+            )
+        )
         _df = df[:-1]
         rd = {"long": {}, "short": {}, "total": {}}
         # long
@@ -294,7 +312,7 @@ class Ml(object):
         self.df = self._get_prices_daily_quotes()
         self.features()
         model = joblib.load(
-            "{}/{}.joblib".format(self.model_dir_path, self.ticker),
+            "{}/{}.m.joblib".format(self.model_dir_path, self.ticker),
         )
         y_pred = model.predict(self.X)
         self.X["Y"] = y_pred

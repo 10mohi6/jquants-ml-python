@@ -36,7 +36,7 @@ ml = MyMl(
 pprint.pprint(ml.backtest())
 ```
 
-![7203.png](https://raw.githubusercontent.com/10mohi6/jquants-ml-python/main/tests/7203.png)
+![7203.png](https://raw.githubusercontent.com/10mohi6/jquants-ml-python/main/tests/7203.p.png)
 
 ```python
 {'long': {'maximum drawdown': '17900.000',
