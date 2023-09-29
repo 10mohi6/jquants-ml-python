@@ -98,7 +98,9 @@ class Ml(object):
         model.fit(self.X, y)
         joblib.dump(
             model,
-            "{}/{}.m.joblib".format(self.model_dir_path, self.ticker),
+            "{}/{}.m.joblib".format(self.model_dir_path, self.ticker)
+            if self.is_filename_ticker
+            else "{}/m.joblib".format(self.model_dir_path),
             compress=True,
         )
         X_train, X_test, y_train, y_test = train_test_split(
@@ -312,7 +314,9 @@ class Ml(object):
         self.df = self._get_prices_daily_quotes()
         self.features()
         model = joblib.load(
-            "{}/{}.m.joblib".format(self.model_dir_path, self.ticker),
+            "{}/{}.m.joblib".format(self.model_dir_path, self.ticker)
+            if self.is_filename_ticker
+            else "{}/m.joblib".format(self.model_dir_path),
         )
         y_pred = model.predict(self.X)
         self.X["Y"] = y_pred
