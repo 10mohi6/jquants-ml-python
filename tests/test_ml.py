@@ -29,7 +29,7 @@ def scope_module():
         outputs_dir_path="tests",
         model_dir_path="tests",
         data_dir_path="tests",
-        ticker="7203",  # TOYOTA
+        ticker="6273",  # SMC
         size=100,  # 100 shares
     )
 
@@ -38,7 +38,7 @@ def scope_module():
 def ml(scope_module, mocker):
     mocker.patch(
         "jquants_ml.Ml._get_prices_daily_quotes",
-        return_value=pd.read_csv("tests/7203.d.csv", index_col=0, parse_dates=True),
+        return_value=pd.read_csv("tests/6273.d.csv", index_col=0, parse_dates=True),
     )
     yield scope_module
 

@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from sklearn.model_selection import KFold, cross_val_score, train_test_split
+from sklearn.model_selection import train_test_split
 
 
 class Col(IntEnum):
@@ -139,8 +139,10 @@ class Ml(object):
         ax1.plot(df["Short"])
         ax1.plot(df["Total"])
         ax1.legend(["long profit", "short profit", "total profit"])
-        ax2.plot(df["Close"])
+        ax1.grid()
+        ax2.plot(df["Close"] - df["Close"][0])
         ax2.legend(["close"])
+        ax2.grid()
         feature_imp = pd.DataFrame(
             sorted(zip(model.feature_importances_, self.X.columns.tolist())),
             columns=["value", "features"],
@@ -151,19 +153,19 @@ class Ml(object):
             data=feature_imp.sort_values(by="value", ascending=False),
             ax=ax3,
         )
-        cv = KFold(n_splits=2, shuffle=True, random_state=0)
-        scores = cross_val_score(
-            model,
-            self.X,
-            y,
-            scoring="r2",
-            cv=cv,
-        )
-        ax3.set_title(
-            "score mean, std {} {}".format(
-                np.mean(scores).round(4), np.std(scores).round(4)
-            )
-        )
+        # cv = KFold(n_splits=2, shuffle=True, random_state=0)
+        # scores = cross_val_score(
+        #     model,
+        #     self.X,
+        #     y,
+        #     scoring="r2",
+        #     cv=cv,
+        # )
+        # ax3.set_title(
+        #     "score mean, std {} {}".format(
+        #         np.mean(scores).round(4), np.std(scores).round(4)
+        #     )
+        # )
         fig.suptitle(self.ticker)
         fig.tight_layout()
         plt.savefig(

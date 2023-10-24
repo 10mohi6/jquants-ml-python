@@ -15,7 +15,7 @@ jquants-ml is a python library for machine learning with japanese stock trade us
 
 ## Usage
 
-### basic backtest
+### backtest
 
 ```python
 from jquants_ml import Ml
@@ -39,30 +39,30 @@ pprint.pprint(ml.backtest())
 ![7203.png](https://raw.githubusercontent.com/10mohi6/jquants-ml-python/main/tests/7203.p.png)
 
 ```python
-{'long': {'maximum drawdown': '17900.000',
-          'profit': '28450.000',
-          'profit factor': '1.160',
-          'riskreward ratio': '1.137',
-          'sharpe ratio': '0.056',
-          'trades': '196.000',
-          'win rate': '0.505'},
- 'short': {'maximum drawdown': '73050.000',
-           'profit': '-37700.000',
-           'profit factor': '0.769',
-           'riskreward ratio': '0.828',
-           'sharpe ratio': '0.088',
-           'trades': '108.000',
-           'win rate': '0.481'},
- 'total': {'maximum drawdown': '60950.000',
-           'profit': '-9250.000',
-           'profit factor': '0.973',
-           'riskreward ratio': '0.986',
-           'sharpe ratio': '0.069',
-           'trades': '304.000',
-           'win rate': '0.497'}}
+{'long': {'maximum drawdown': '15250.000',
+          'profit': '12700.000',
+          'profit factor': '1.183',
+          'riskreward ratio': '1.213',
+          'sharpe ratio': '0.063',
+          'trades': '81.000',
+          'win rate': '0.494'},
+ 'short': {'maximum drawdown': '50100.000',
+           'profit': '-43800.000',
+           'profit factor': '0.413',
+           'riskreward ratio': '0.478',
+           'sharpe ratio': '0.298',
+           'trades': '41.000',
+           'win rate': '0.463'},
+ 'total': {'maximum drawdown': '47200.000',
+           'profit': '-31100.000',
+           'profit factor': '0.784',
+           'riskreward ratio': '0.837',
+           'sharpe ratio': '0.149',
+           'trades': '122.000',
+           'win rate': '0.484'}}
 ```
 
-### basic predict
+### predict
 
 ```python
 from jquants_ml import Ml
@@ -84,7 +84,7 @@ pprint.pprint(ml.predict())
 ```
 
 ```python
-{'Date': '2023-09-25', 'Price': 2761.5, 'Sign': 'short'}
+{'Date': '2023-08-01', 'Price': 2445.5, 'Sign': 'short'}
 ```
 
 ### advanced
